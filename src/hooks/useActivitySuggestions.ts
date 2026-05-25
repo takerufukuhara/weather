@@ -69,7 +69,6 @@ export function useActivitySuggestions(userInfo: UserInfo, weather: WeatherData 
         const tomorrowSummary = summarizeHours(tomorrowHours);
 
         // 外出時間帯チェック用
-        const rainDuringOutings: string[] = [];
         const outingMap: Record<string, number[]> = {}; // 例: { "2025-07-03": [9,10,11,...17] }
 
         userInfo.schedule.forEach(day => {
