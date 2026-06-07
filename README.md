@@ -1,46 +1,120 @@
-# Getting Started with Create React App
+# Weather
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+卒業研究用に開発した天候情報を活用した行動提案システムです。
 
-## Available Scripts
+## 概要
 
-In the project directory, you can run:
+<!-- 後で追記予定 -->
+
+## 主な機能
+
+- メールアドレスとパスワードによるユーザー認証
+- 家事、持ち物、住環境設備、外出スケジュールの入力
+- 入力内容の Supabase への保存
+- Open-Meteo API からの天候データ取得
+- 天候データとユーザー入力に基づく行動提案の生成
+- 生成した提案結果の Supabase への保存
+
+## 使用技術
+
+- React
+- TypeScript
+- React Router
+- React Hook Form
+- Supabase
+- Open-Meteo API
+- OpenAI API
+
+## ディレクトリ構成
+
+```text
+.
+├── public/
+├── src/
+│   ├── api/
+│   │   └── weather.ts
+│   ├── components/
+│   │   ├── Auth.tsx
+│   │   ├── ResultsPage.tsx
+│   │   ├── SlotEditor.tsx
+│   │   └── UserInputPage.tsx
+│   ├── hooks/
+│   │   ├── useActivitySuggestions.ts
+│   │   └── useUserInfoForm.ts
+│   ├── styles/
+│   │   └── index.css
+│   ├── App.tsx
+│   ├── index.tsx
+│   └── supabaseClient.ts
+├── package.json
+└── README.md
+```
+
+## セットアップ
+
+### 1. 依存関係のインストール
+
+```bash
+npm install
+```
+
+### 2. 環境変数の設定
+
+プロジェクトルートに `.env` を作成し、以下の値を設定します。
+
+```env
+REACT_APP_SUPABASE_URL=your_supabase_url
+REACT_APP_SUPABASE_ANON_KEY=your_supabase_anon_key
+REACT_APP_OPENAI_API_KEY=your_openai_api_key
+```
+
+### 3. 開発サーバーの起動
+
+```bash
+npm start
+```
+
+起動後、ブラウザで以下にアクセスします。
+
+```text
+http://localhost:3000
+```
+
+## 利用方法
+
+1. アカウントを作成、またはログインします。
+2. 天候に左右される家事、持ち物、住環境設備を入力します。
+3. 今日と明日の外出スケジュールを入力します。
+4. 提案を生成します。
+5. 必要に応じて、生成された提案結果を保存します。
+
+## Supabase で利用するデータ
+
+このシステムでは、主に以下のデータを Supabase に保存します。
+
+- ユーザープロフィール
+- 家事設定
+- 持ち物設定
+- 外出スケジュール
+- 住環境設備の有無
+- 生成された行動提案
+
+## 利用可能なスクリプト
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+開発サーバーを起動します。
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+本番用のビルドを作成します。
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### `npm test`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+テストランナーを起動します。
 
-### `npm run eject`
+## 備考
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- 本システムは卒業論文での利用を目的としたアプリケーションです．
+- 天候データは Open-Meteo API から取得します。
+- 行動提案の生成には OpenAI API を利用します。
