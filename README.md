@@ -25,6 +25,16 @@
 - Open-Meteo API
 - OpenAI API
 
+## 公開URL
+
+以下のURLからアプリにアクセスできます。
+
+```text
+https://sotuken-evcs.vercel.app/
+```
+
+利用にはログインが必要です。
+
 ## ディレクトリ構成
 
 ```text
